@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package anggota;
+
+message Anggota {
+    int32 id = 1;
+    string nama = 2;
+    string email = 3;
+    string nis = 4;
+    string password = 5;
+    string token = 6;
+}
+
+message AnggotaListRequest {
+    
+}
+
+message AnggotaListResponse {
+    repeated Anggota anggota = 1;
+}
+
+message AnggotaRequest {
+    int32 id = 1;
+}
+
+message AnggotaResponse {
+    Anggota anggota = 1;
+}
+
+message AnggotaCreateRequest {
+    string nama = 1;
+    string email = 2;
+    string nis = 3;
+    string password = 4;
+}
+
+message AnggotaCreateResponse {
+    Anggota anggota = 1;
+}
+
+message AnggotaUpdateRequest {
+    int32 id = 1;
+    string nama = 2;
+    string email = 3;
+    string nis = 4;
+    string password = 5;
+}
+
+message AnggotaUpdateResponse {
+    Anggota anggota = 1;
+}
+
+message AnggotaDeleteRequest {
+    int32 id = 1;
+}
+
+message AnggotaDeleteResponse {
+    string message = 1;
+}
+
+message AnggotaLoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message AnggotaLoginResponse {
+    string token = 1;
+    string email = 2;
+    string nama = 3;
+    int32 id = 4;
+}
+
+message AnggotaLogoutRequest {
+    string token = 1;
+}
+
+message AnggotaLogoutResponse {
+    string message = 1;
+}
+
+service AnggotaService {
+    rpc List(AnggotaListRequest) returns (AnggotaListResponse);
+    rpc Get(AnggotaRequest) returns (AnggotaResponse);
+    rpc Create(AnggotaCreateRequest) returns (AnggotaCreateResponse);
+    rpc Update(AnggotaUpdateRequest) returns (AnggotaUpdateResponse);
+    rpc Delete(AnggotaDeleteRequest) returns (AnggotaDeleteResponse);
+    rpc Login(AnggotaLoginRequest) returns (AnggotaLoginResponse);
+    rpc Logout(AnggotaLogoutRequest) returns (AnggotaLogoutResponse);
+}
+

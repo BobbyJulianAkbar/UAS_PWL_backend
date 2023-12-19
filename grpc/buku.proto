@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package buku;
+
+message Buku {
+    int32 id = 1;
+    string judul = 2;
+    string pengarang = 3;
+    string penerbit = 4;
+    string tahun_terbit = 5;
+    int32 kategori_id = 6;
+    string isbn = 7;
+    int32 jumlah_buku = 8;
+    string deskripsi = 9;
+  }
+
+
+message BukuListRequest {
+    
+  }
+
+message BukuListResponse {
+    repeated Buku buku = 1;
+  }
+
+message BukuDetailRequest {
+    int32 id = 1;
+  }
+
+message BukuDetailResponse {
+    Buku buku = 1;
+  }
+
+message BukuCreateRequest {
+    string judul = 1;
+    string pengarang = 2;
+    string penerbit = 3;
+    string tahun_terbit = 4;
+    int32 kategori_id = 5;
+    string isbn = 6;
+    int32 jumlah_buku = 7;
+    string deskripsi = 8;
+  }
+
+message BukuCreateResponse {
+    Buku buku = 1;
+  }
+
+message BukuUpdateRequest {
+    int32 id = 1;
+    string judul = 2;
+    string pengarang = 3;
+    string penerbit = 4;
+    string tahun_terbit = 5;
+    int32 kategori_id = 6;
+    string isbn = 7;
+    int32 jumlah_buku = 8;
+    string deskripsi = 9;
+  }
+
+message BukuUpdateResponse {
+    string message = 1;
+  }
+
+message BukuDeleteRequest {
+    int32 id = 1;
+  }
+
+message BukuDeleteResponse {
+    string message = 1;
+  }
+
+
+  service BukuService {
+    rpc List (BukuListRequest) returns (BukuListResponse);
+    rpc Detail (BukuDetailRequest) returns (BukuDetailResponse);
+    rpc Create (BukuCreateRequest) returns (BukuCreateResponse);
+    rpc Update (BukuUpdateRequest) returns (BukuUpdateResponse);
+    rpc Delete (BukuDeleteRequest) returns (BukuDeleteResponse);
+  }

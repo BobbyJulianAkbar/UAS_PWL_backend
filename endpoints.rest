@@ -1,0 +1,98 @@
+@baseUrl = http://127.0.0.1:6543/api/v1
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzdGFnYUBlbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1Njc4OTAifQ.DP90DCEG4FIMm357WObzTdrrhQEHbnvIWIUi4iBw8YM
+
+### GET ALL ANGGOTA
+GET  {{baseUrl}}/anggota
+
+### GET ANGGOTA BY ID
+GET  {{baseUrl}}/anggota?id=12
+
+### CREATE ANGGOTA
+POST {{baseUrl}}/anggota
+
+{
+    "nama": "Rizky",
+    "email": "astaga@email.com",
+    "nis": "1234567890",
+    "password": "1234567890"
+}
+
+### UPDATE ANGGOTA
+PUT {{baseUrl}}/anggota
+
+{
+    "id": 3,
+    "nama": "Rizky",
+    "email": "testing@gmail.com",
+    "nis": "1234567890"
+}
+
+### DELETE ANGGOTA
+DELETE {{baseUrl}}/anggota?id=3
+
+### LOGIN ANGGOTA
+POST {{baseUrl}}/login-anggota
+    
+{
+    "email": "astaga@email.com",
+    "password": "1234567890"
+}
+
+### LOGOUT ANGGOTA
+POST {{baseUrl}}/logout-anggota
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzdGFnYUBlbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1Njc4OTAifQ.DP90DCEG4FIMm357WObzTdrrhQEHbnvIWIUi4iBw8YM"
+}
+
+
+### GET ALL BUKU
+GET  {{baseUrl}}/buku
+
+### CREATE BUKU
+POST {{baseUrl}}/buku
+
+{
+    "judul": "Buku 1",
+    "pengarang": "Pengarang 1",
+    "penerbit": "Penerbit 1",
+    "tahun_terbit": "2019",
+    "kategori_id": 1,
+    "jumlah_buku": 10,
+    "deskripsi": "Deskripsi 1",
+    "isbn": "1234567890"
+}
+
+### GET BUKU BY ID
+GET  {{baseUrl}}/buku?id=13
+
+### GET KATEGORI BUKU
+GET  {{baseUrl}}/kategori
+
+
+### GET ALL PETUGAS
+GET  {{baseUrl}}/petugas
+
+### LOGIN PETUGAS
+POST {{baseUrl}}/login-petugas
+    
+{
+    "email": "admin@admin.com",
+    "password": "admin"
+}
+
+### GET ALL PEMINJAMAN
+GET  {{baseUrl}}/peminjaman
+
+### GET ALL PEMINJAMAN
+GET  {{baseUrl}}/peminjaman?id=1
+
+### create PEMINJAMAN
+POST {{baseUrl}}/peminjaman
+
+{
+    "id_anggota": 1,
+    "id_buku": 1,
+    "tanggal_peminjaman": "2019-12-12",
+    "tanggal_pengembalian": "2019-12-12"
+}

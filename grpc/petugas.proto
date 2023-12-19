@@ -1,0 +1,93 @@
+syntax = 'proto3';
+
+package petugas;
+
+message Petugas {
+    int32 id = 1;
+    string fnama = 2;
+    string email = 3;
+    string password = 4;
+    string username = 5;
+    string status = 6;
+}
+
+
+message PetugasListRequest {
+
+}
+
+
+message PetugasListResponse {
+    repeated Petugas petugas = 1;
+}
+
+message PetugasDetailRequest {
+    int32 id = 1;
+}
+
+message PetugasDetailResponse {
+    Petugas petugas = 1;
+}
+
+message PetugasCreateRequest {
+    string fnama = 1;
+    string email = 2;
+    string password = 3;
+    string username = 4;
+    string status = 5;
+}
+
+message PetugasCreateResponse {
+    Petugas petugas = 1;
+}
+
+message PetugasUpdateRequest {
+    int32 id = 1;
+    string fnama = 2;
+    string email = 3;
+    string password = 4;
+    string username = 5;
+    string status = 6;
+}
+
+message PetugasUpdateResponse {
+    Petugas petugas = 1;
+}
+
+message PetugasDeleteRequest {
+    int32 id = 1;
+}
+
+message PetugasDeleteResponse {
+    string message = 1;
+}
+
+message PetugasLoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message PetugasLoginResponse {
+    string token = 1;
+    string email = 2;
+    string fnama = 3;
+}
+
+message PetugasLogoutRequest {
+    string token = 1;
+}
+
+message PetugasLogoutResponse {
+    string message = 1;
+}
+
+
+service PetugasService {
+    rpc List (PetugasListRequest) returns (PetugasListResponse);
+    rpc Detail (PetugasDetailRequest) returns (PetugasDetailResponse);
+    rpc Create (PetugasCreateRequest) returns (PetugasCreateResponse);
+    rpc Update (PetugasUpdateRequest) returns (PetugasUpdateResponse);
+    rpc Delete (PetugasDeleteRequest) returns (PetugasDeleteResponse);
+    rpc Login (PetugasLoginRequest) returns (PetugasLoginResponse);
+    rpc Logout (PetugasLogoutRequest) returns (PetugasLogoutResponse);
+}

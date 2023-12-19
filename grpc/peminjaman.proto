@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package peminjaman;
+
+message Peminjaman {
+    int32 id = 1;
+    int32 id_buku = 2;
+    int32 id_anggota = 3;
+    string tanggal_peminjaman = 4;
+    string tanggal_pengembalian = 5;
+    string status = 6;
+}
+
+message PeminjamanListRequest {
+    
+}
+
+message PeminjamanListResponse {
+    repeated Peminjaman peminjaman = 1;
+}
+
+message PeminjamanRequest {
+    int32 id = 1;
+}
+
+message PeminjamanResponse {
+    Peminjaman peminjaman = 1;
+}
+
+message PeminjamanCreateRequest {
+    int32 id_buku = 1;
+    int32 id_anggota = 2;
+    string tanggal_peminjaman = 3;
+    string tanggal_pengembalian = 4;
+    string status = 5;
+}
+
+message PeminjamanCreateResponse {
+    Peminjaman peminjaman = 1;
+}
+
+message PeminjamanUpdateRequest {
+    int32 id = 1;
+    int32 id_buku = 2;
+    int32 id_anggota = 3;
+    string tanggal_peminjaman = 4;
+    string tanggal_pengembalian = 5;
+    string status = 6;
+}
+
+message PeminjamanUpdateResponse {
+    string message = 1;
+}
+
+message PeminjamanDeleteRequest {
+    int32 id = 1;
+}
+
+message PeminjamanDeleteResponse {
+    string message = 1;
+}
+
+service PeminjamanService {
+    rpc GetPeminjamanList(PeminjamanListRequest) returns (PeminjamanListResponse);
+    rpc GetPeminjaman(PeminjamanRequest) returns (PeminjamanResponse);
+    rpc CreatePeminjaman(PeminjamanCreateRequest) returns (PeminjamanCreateResponse);
+    rpc UpdatePeminjaman(PeminjamanUpdateRequest) returns (PeminjamanUpdateResponse);
+    rpc DeletePeminjaman(PeminjamanDeleteRequest) returns (PeminjamanDeleteResponse);
+}
