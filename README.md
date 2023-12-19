@@ -74,8 +74,7 @@ pserve development.ini
 
 List of dependencies:
 - pyramid
-- cookiecutter
+- grpc_server
 - alembic
 - sqlalchemy
-- mysql-connector-python
-- mysqlclient
+- jwt
